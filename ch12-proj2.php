@@ -1,6 +1,7 @@
 <?php 
-
+// Group Members: Dilpreet and Nicia
 include 'data.inc.php';
+include 'function.php';
 
 ?>
 <!DOCTYPE html>
@@ -12,9 +13,12 @@ include 'data.inc.php';
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+    <?php include 'header.inc.php'; ?>
+    
     
 <main>
-<form class="form" id="mainForm">
+<form class="form" id="mainForm" method="POST" action="art-process.php"> 
+
    <fieldset class="form__panel">
       <legend class="form__heading">Edit Art Work Details</legend>
         <p class="form__row">
@@ -30,12 +34,17 @@ include 'data.inc.php';
            <select name="genre" class="form__input form__select">
               <option>Choose genre</option> 
 
+<!-- Exercise 5: Added PHP code to populate genre options from $genres array -->
+              <?php echo arrayToOptions($genres); ?>
+
            </select>
        </p>
        <p class="form__row"> 
            <label>Subject</label><br/>
            <select name="subject" class="form__input form__select">
               <option>Choose subject</option> 
+<!-- populate subject options from $subjects array -->
+              <?php echo arrayToOptions($subjects); ?>
 
            </select>
        </p>
@@ -58,5 +67,5 @@ include 'data.inc.php';
    </fieldset>
 </form>
 </main>       
-</body>
+</body>    
 </html>
